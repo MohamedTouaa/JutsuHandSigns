@@ -1,0 +1,414 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #0a0c12;
+  color: #f4ede1;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- shared ---------- */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.dark-bg {
+  background: #0a0c12;
+}
+
+.center {
+  text-align: center;
+}
+
+.error-text {
+  max-width: 420px;
+  text-align: center;
+  color: #ff6b6b;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  color: #ff8c1a;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.begin-btn {
+  padding: 14px 40px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff8c1a, #ffb347);
+  color: #140a04;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(255, 140, 26, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.begin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(255, 140, 26, 0.45);
+}
+
+/* ---------- onboarding ---------- */
+
+.onboarding {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #0a0c12;
+}
+
+.intro-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- fullscreen camera ---------- */
+
+.camera-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+}
+
+.video-fullscreen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border: 3px solid #ff8c1a;
+  opacity: 0.9;
+}
+
+.hud-corner.tl { top: 28px; left: 28px; border-right: none; border-bottom: none; }
+.hud-corner.tr { top: 28px; right: 28px; border-left: none; border-bottom: none; }
+.hud-corner.bl { bottom: 28px; left: 28px; border-right: none; border-top: none; }
+.hud-corner.br { bottom: 28px; right: 28px; border-left: none; border-top: none; }
+
+.hud-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff8c1a, transparent);
+  box-shadow: 0 0 12px 2px rgba(255, 140, 26, 0.8);
+  animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% { top: 10%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { top: 90%; opacity: 1; }
+  60% { opacity: 0; }
+  100% { top: 10%; opacity: 0; }
+}
+
+.hud-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.countdown-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 140, 26, 0.35);
+  border-top-color: #ff8c1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(10, 12, 18, 0.35);
+  animation: ring-spin 1s linear infinite;
+  text-shadow: 0 0 16px rgba(255, 140, 26, 0.8);
+}
+
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+.hud-hint {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  background: rgba(10, 12, 18, 0.55);
+  padding: 8px 20px;
+  border-radius: 999px;
+  margin: 0;
+}
+
+.hud-hint.warn {
+  color: #ffb347;
+}
+
+/* ---------- result: overlaid on the live camera feed ---------- */
+
+.result-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.result-character {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 86vh;
+  max-width: 68vw;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 40px rgba(255, 140, 26, 0.25));
+  animation: result-character-in 0.5s ease-out;
+}
+
+@keyframes result-character-in {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.result-card {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  width: min(420px, 92vw);
+  margin: 0 0 28px 16px;
+  text-align: left;
+  padding: 18px 20px 22px;
+  border-radius: 20px;
+  background: rgba(10, 12, 18, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 140, 26, 0.3);
+}
+
+.result-name {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin: 0 0 6px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 10px 0 16px;
+}
+
+.skill-tag {
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(255, 140, 26, 0.15);
+  border: 1px solid rgba(255, 140, 26, 0.5);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: #f4ede1;
+}
+
+.skill-tag-btn {
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 140, 26, 0.18);
+  border-width: 1.5px;
+  box-shadow: 0 0 0 0 rgba(255, 140, 26, 0.4);
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  animation: skill-tag-pulse 2.4s ease-in-out infinite;
+}
+
+.skill-tag-arrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ff8c1a;
+  letter-spacing: 0.02em;
+}
+
+.skill-tag-btn:hover {
+  background: rgba(255, 140, 26, 0.38);
+  transform: translateY(-1px) scale(1.03);
+}
+
+@keyframes skill-tag-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 140, 26, 0.35); }
+  50% { box-shadow: 0 0 0 5px rgba(255, 140, 26, 0); }
+}
+
+.hint {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin: 0 0 4px;
+}
+
+/* ---------- jutsu training ---------- */
+
+.video-fullscreen.hidden {
+  visibility: hidden;
+}
+
+.jutsu-screen {
+  position: absolute;
+  inset: 0;
+}
+
+.jutsu-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: jutsu-frame-in 0.4s ease-out;
+}
+
+@keyframes jutsu-frame-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.jutsu-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: radial-gradient(circle at 50% 40%, #1a0e12 0%, #0a0c12 70%);
+  animation: jutsu-frame-in 0.3s ease-out;
+}
+
+.countdown-ring.small {
+  width: 64px;
+  height: 64px;
+  border-width: 3px;
+}
+
+.jutsu-target-card {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(360px, 88vw);
+  text-align: center;
+  padding: 16px 20px 20px;
+  border-radius: 20px;
+  background: rgba(10, 12, 18, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 140, 26, 0.35);
+  animation: jutsu-frame-in 0.3s ease-out;
+}
+
+.hand-sign-icon {
+  display: block;
+  margin: 2px auto 6px;
+  filter: drop-shadow(0 0 10px rgba(255, 140, 26, 0.35));
+}
+
+.hand-sign-photo {
+  display: block;
+  margin: 2px auto 6px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 140, 26, 0.4);
+}
+
+.jutsu-target-name {
+  font-size: 2.2rem;
+  margin: 0 0 12px;
+  text-shadow: 0 0 20px rgba(255, 140, 26, 0.6);
+}
+
+.jutsu-progress-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.jutsu-progress-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.jutsu-progress-dots .dot.done {
+  background: #ff8c1a;
+}
+
+.jutsu-progress-dots .dot.active {
+  background: #ffb347;
+  box-shadow: 0 0 10px 2px rgba(255, 179, 71, 0.7);
+}
+
+.jutsu-hold-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.jutsu-hold-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8c1a, #ffb347);
+  transition: width 0.1s linear;
+}
+
+.jutsu-detected-hint {
+  margin: 0;
+}
+
+.jutsu-result-card {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+}

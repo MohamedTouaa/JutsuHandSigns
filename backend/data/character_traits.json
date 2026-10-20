@@ -1,0 +1,611 @@
+[
+  {
+    "id": "choji-akimichi",
+    "name": "Chōji Akimichi",
+    "file": "choji-akimichi.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1619125670407324,
+      "eyeSpacingRatio": 0.23485390509779341,
+      "eyeSizeRatio": 0.09171982855818127,
+      "skin": {
+        "r": 191.77083333333334,
+        "g": 163.48958333333334,
+        "b": 153.734375
+      },
+      "hair": {
+        "r": 153.60257985257985,
+        "g": 104.69348894348894,
+        "b": 100.89250614250614
+      }
+    }
+  },
+  {
+    "id": "deidara",
+    "name": "Deidara",
+    "file": "deidara.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0595192611655582,
+      "eyeSpacingRatio": 0.3389556839915679,
+      "eyeSizeRatio": 0.13614754544236038,
+      "skin": {
+        "r": 170.36979166666666,
+        "g": 138.65625,
+        "b": 80.91666666666667
+      },
+      "hair": {
+        "r": 195.98086253369272,
+        "g": 155.322371967655,
+        "b": 65.4088948787062
+      }
+    }
+  },
+  {
+    "id": "fourth-raikage",
+    "name": "A, the Fourth Raikage",
+    "file": "fourth-raikage.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0246821635781809,
+      "eyeSpacingRatio": 0.33432481525529406,
+      "eyeSizeRatio": 0.12528645735197752,
+      "skin": {
+        "r": 151.77604166666666,
+        "g": 118.06770833333333,
+        "b": 103.21354166666667
+      },
+      "hair": {
+        "r": 219.07253599114065,
+        "g": 198.94296788482836,
+        "b": 191.13713547434477
+      }
+    }
+  },
+  {
+    "id": "hashirama-senju",
+    "name": "Hashirama Senju",
+    "file": "hashirama-senju.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1355683795832352,
+      "eyeSpacingRatio": 0.3580385894694526,
+      "eyeSizeRatio": 0.14005366955291806,
+      "skin": {
+        "r": 160.99479166666666,
+        "g": 136.13020833333334,
+        "b": 112.99479166666667
+      },
+      "hair": {
+        "r": 53.01899907321594,
+        "g": 52.291010194624654,
+        "b": 35.51668211306765
+      }
+    }
+  },
+  {
+    "id": "hinata-hyuga",
+    "name": "Hinata Hyūga",
+    "file": "hinata-hyuga.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0090997647166469,
+      "eyeSpacingRatio": 0.4010673665435417,
+      "eyeSizeRatio": 0.15440279788326788,
+      "skin": {
+        "r": 168.69791666666666,
+        "g": 150.953125,
+        "b": 116.734375
+      },
+      "hair": {
+        "r": 82.50280469148393,
+        "g": 89.42962774094849,
+        "b": 92.05634880163183
+      }
+    }
+  },
+  {
+    "id": "indra-otsutsuki",
+    "name": "Indra Ōtsutsuki",
+    "file": "indra-otsutsuki.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1419068547540059,
+      "eyeSpacingRatio": 0.3170528257148662,
+      "eyeSizeRatio": 0.1207953621622928,
+      "skin": {
+        "r": 183.40625,
+        "g": 164.828125,
+        "b": 158.05729166666666
+      },
+      "hair": {
+        "r": 167.53973699256719,
+        "g": 154.48227558604918,
+        "b": 146.68582046883932
+      }
+    }
+  },
+  {
+    "id": "ino-yamanaka",
+    "name": "Ino Yamanaka",
+    "file": "ino-yamanaka.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0232802862006147,
+      "eyeSpacingRatio": 0.3504917520310873,
+      "eyeSizeRatio": 0.13714297339116013,
+      "skin": {
+        "r": 195.65104166666666,
+        "g": 171.97916666666666,
+        "b": 154.64583333333334
+      },
+      "hair": {
+        "r": 230.45644599303137,
+        "g": 224.14401858304296,
+        "b": 205.11749903213317
+      }
+    }
+  },
+  {
+    "id": "itachi-uchiha",
+    "name": "Itachi Uchiha",
+    "file": "itachi-uchiha.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0203472804263034,
+      "eyeSpacingRatio": 0.3716838613456389,
+      "eyeSizeRatio": 0.1370274114200463,
+      "skin": {
+        "r": 169.35416666666666,
+        "g": 152.38020833333334,
+        "b": 150.05729166666666
+      },
+      "hair": {
+        "r": 150.9989898989899,
+        "g": 153.9946127946128,
+        "b": 161.79107744107745
+      }
+    }
+  },
+  {
+    "id": "jiraiya",
+    "name": "Jiraiya",
+    "file": "jiraiya.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0264472866973224,
+      "eyeSpacingRatio": 0.3538022474668591,
+      "eyeSizeRatio": 0.13639140445273676,
+      "skin": {
+        "r": 136.84375,
+        "g": 106.67708333333333,
+        "b": 102.109375
+      },
+      "hair": {
+        "r": 189.0462304409673,
+        "g": 190.3615457562826,
+        "b": 194.7633949739213
+      }
+    }
+  },
+  {
+    "id": "kabuto-yakushi",
+    "name": "Kabuto Yakushi",
+    "file": "kabuto-yakushi.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1382512124831399,
+      "eyeSpacingRatio": 0.35869779608791075,
+      "eyeSizeRatio": 0.1394087759797346,
+      "skin": {
+        "r": 159.85416666666666,
+        "g": 138.81770833333334,
+        "b": 132.65625
+      },
+      "hair": {
+        "r": 199.86801242236024,
+        "g": 204.36141304347825,
+        "b": 209.98874223602485
+      }
+    }
+  },
+  {
+    "id": "kakashi-hatake",
+    "name": "Kakashi Hatake",
+    "file": "kakashi-hatake.jpeg",
+    "traits": {
+      "detected": false,
+      "faceRatio": 0.78,
+      "eyeSpacingRatio": 0.42,
+      "eyeSizeRatio": 0.23,
+      "skin": {
+        "r": 107.45074286528664,
+        "g": 113.28198002399022,
+        "b": 105.17435659909027
+      },
+      "hair": {
+        "r": 210.6960015447227,
+        "g": 217.01538781451444,
+        "b": 212.70375486439116
+      }
+    }
+  },
+  {
+    "id": "kiba-inuzuka",
+    "name": "Kiba Inuzuka",
+    "file": "kiba-inuzuka.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.157759409440576,
+      "eyeSpacingRatio": 0.3875226893944466,
+      "eyeSizeRatio": 0.1496866272773733,
+      "skin": {
+        "r": 179.671875,
+        "g": 140.36979166666666,
+        "b": 132.47395833333334
+      },
+      "hair": {
+        "r": 74.27579852579852,
+        "g": 65.87100737100737,
+        "b": 62.229729729729726
+      }
+    }
+  },
+  {
+    "id": "kisame-hoshigaki",
+    "name": "Kisame Hoshigaki",
+    "file": "kisame-hoshigaki.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 0.9926821508262725,
+      "eyeSpacingRatio": 0.22065272691046894,
+      "eyeSizeRatio": 0.09790354497357931,
+      "skin": {
+        "r": 187.125,
+        "g": 195.76041666666666,
+        "b": 198.04166666666666
+      },
+      "hair": {
+        "r": 207.88078108941417,
+        "g": 207.61165761268535,
+        "b": 208.17486419028043
+      }
+    }
+  },
+  {
+    "id": "konan",
+    "name": "Konan",
+    "file": "konan.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 0.9130700823105327,
+      "eyeSpacingRatio": 0.274337753745202,
+      "eyeSizeRatio": 0.11680949647777472,
+      "skin": {
+        "r": 114.90104166666667,
+        "g": 101.75,
+        "b": 123.60416666666667
+      },
+      "hair": {
+        "r": 207.96039603960395,
+        "g": 210.45239908606246,
+        "b": 234.84716933231786
+      }
+    }
+  },
+  {
+    "id": "madara-uchiha",
+    "name": "Madara Uchiha",
+    "file": "madara-uchiha.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 0.999000320539471,
+      "eyeSpacingRatio": 0.316918839210411,
+      "eyeSizeRatio": 0.1283251713472524,
+      "skin": {
+        "r": 76.453125,
+        "g": 62.791666666666664,
+        "b": 59.848958333333336
+      },
+      "hair": {
+        "r": 84.92985441482321,
+        "g": 87.2698052561921,
+        "b": 98.08678389109473
+      }
+    }
+  },
+  {
+    "id": "minato-namikaze",
+    "name": "Minato Namikaze",
+    "file": "minato-namikaze.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.173863355729367,
+      "eyeSpacingRatio": 0.34241192515045327,
+      "eyeSizeRatio": 0.13019902295806604,
+      "skin": {
+        "r": 189.41666666666666,
+        "g": 152.30208333333334,
+        "b": 108.3125
+      },
+      "hair": {
+        "r": 216.16598416598416,
+        "g": 191.93775593775592,
+        "b": 99.73355173355174
+      }
+    }
+  },
+  {
+    "id": "neji-hyuga",
+    "name": "Neji Hyūga",
+    "file": "neji-hyuga.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0440384746497688,
+      "eyeSpacingRatio": 0.375603521992223,
+      "eyeSizeRatio": 0.14642275703347388,
+      "skin": {
+        "r": 130.765625,
+        "g": 109.77083333333333,
+        "b": 89.35416666666667
+      },
+      "hair": {
+        "r": 84.87850208044382,
+        "g": 75.7994452149792,
+        "b": 56.762274618585295
+      }
+    }
+  },
+  {
+    "id": "obito-uchiha",
+    "name": "Obito Uchiha",
+    "file": "obito-uchiha.jpeg",
+    "traits": {
+      "detected": false,
+      "faceRatio": 0.78,
+      "eyeSpacingRatio": 0.42,
+      "eyeSizeRatio": 0.23,
+      "skin": {
+        "r": 145.5887534109357,
+        "g": 143.6923767745501,
+        "b": 156.95140064246485
+      },
+      "hair": {
+        "r": 243.86895012782182,
+        "g": 244.23428224793102,
+        "b": 244.32052948567963
+      }
+    }
+  },
+  {
+    "id": "orochimaru",
+    "name": "Orochimaru",
+    "file": "orochimaru.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 0.9671468955345753,
+      "eyeSpacingRatio": 0.31023663111043354,
+      "eyeSizeRatio": 0.12172410352574178,
+      "skin": {
+        "r": 47.057291666666664,
+        "g": 46.921875,
+        "b": 51.765625
+      },
+      "hair": {
+        "r": 182.26603865518922,
+        "g": 182.37778138703914,
+        "b": 185.01542959233393
+      }
+    }
+  },
+  {
+    "id": "rock-lee",
+    "name": "Rock Lee",
+    "file": "rock-lee.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1404945726420923,
+      "eyeSpacingRatio": 0.33834312036956804,
+      "eyeSizeRatio": 0.13299630307022536,
+      "skin": {
+        "r": 150.52083333333334,
+        "g": 136.00520833333334,
+        "b": 120.91145833333333
+      },
+      "hair": {
+        "r": 119.41955498502354,
+        "g": 118.26979032948225,
+        "b": 109.76979032948225
+      }
+    }
+  },
+  {
+    "id": "sakura-haruno",
+    "name": "Sakura Haruno",
+    "file": "sakura-haruno.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0395772086613382,
+      "eyeSpacingRatio": 0.2701402765755422,
+      "eyeSizeRatio": 0.11751701087138328,
+      "skin": {
+        "r": 188.90104166666666,
+        "g": 174.46875,
+        "b": 163.171875
+      },
+      "hair": {
+        "r": 216.44612696563775,
+        "g": 169.87973209085615,
+        "b": 170.41555037856727
+      }
+    }
+  },
+  {
+    "id": "sasori",
+    "name": "Sasori",
+    "file": "sasori.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1513733557553227,
+      "eyeSpacingRatio": 0.33787907997164496,
+      "eyeSizeRatio": 0.13691445051581114,
+      "skin": {
+        "r": 98.40104166666667,
+        "g": 66.69270833333333,
+        "b": 70.53125
+      },
+      "hair": {
+        "r": 109.433,
+        "g": 63.09466666666667,
+        "b": 64.50366666666666
+      }
+    }
+  },
+  {
+    "id": "sasuke-uchiha",
+    "name": "Sasuke Uchiha",
+    "file": "sasuke-uchiha.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 0.9905923521857376,
+      "eyeSpacingRatio": 0.36381735050145253,
+      "eyeSizeRatio": 0.14146431056699016,
+      "skin": {
+        "r": 130.21875,
+        "g": 125.25,
+        "b": 117.11458333333333
+      },
+      "hair": {
+        "r": 46.893246187363836,
+        "g": 63.489106753812635,
+        "b": 72.21895424836602
+      }
+    }
+  },
+  {
+    "id": "shikamaru-nara",
+    "name": "Shikamaru Nara",
+    "file": "shikamaru-nara.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1266009094421057,
+      "eyeSpacingRatio": 0.33023537540337466,
+      "eyeSizeRatio": 0.13778236104385366,
+      "skin": {
+        "r": 143.53645833333334,
+        "g": 124.40104166666667,
+        "b": 105.421875
+      },
+      "hair": {
+        "r": 84.54249762583096,
+        "g": 85.84662867996201,
+        "b": 84.66168091168092
+      }
+    }
+  },
+  {
+    "id": "shisui-uchiha",
+    "name": "Shisui Uchiha",
+    "file": "shisui-uchiha.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.074370893280119,
+      "eyeSpacingRatio": 0.3528113590723349,
+      "eyeSizeRatio": 0.14101253488415663,
+      "skin": {
+        "r": 148.05729166666666,
+        "g": 132.88020833333334,
+        "b": 128.74479166666666
+      },
+      "hair": {
+        "r": 88.90120036934441,
+        "g": 91.50692520775624,
+        "b": 103.04339796860573
+      }
+    }
+  },
+  {
+    "id": "third-raikage",
+    "name": "Third Raikage",
+    "file": "third-raikage.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.064580501949693,
+      "eyeSpacingRatio": 0.3418594507002428,
+      "eyeSizeRatio": 0.13075533193912908,
+      "skin": {
+        "r": 143.10416666666666,
+        "g": 118.359375,
+        "b": 82.02604166666667
+      },
+      "hair": {
+        "r": 241.60035778175313,
+        "g": 237.40840787119856,
+        "b": 228.04203935599284
+      }
+    }
+  },
+  {
+    "id": "tobirama-senju",
+    "name": "Tobirama Senju",
+    "file": "tobirama-senju.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.0912028421740896,
+      "eyeSpacingRatio": 0.38023559867677353,
+      "eyeSizeRatio": 0.14446927977764298,
+      "skin": {
+        "r": 222.63020833333334,
+        "g": 196.078125,
+        "b": 164.67708333333334
+      },
+      "hair": {
+        "r": 212.3013613861386,
+        "g": 213.28743811881188,
+        "b": 217.25835396039605
+      }
+    }
+  },
+  {
+    "id": "yahiko",
+    "name": "Yahiko",
+    "file": "yahiko.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1016627105294776,
+      "eyeSpacingRatio": 0.35236998833253114,
+      "eyeSizeRatio": 0.1371643413028729,
+      "skin": {
+        "r": 109.20833333333333,
+        "g": 92.05208333333333,
+        "b": 78.625
+      },
+      "hair": {
+        "r": 207.77348777348777,
+        "g": 127.89498069498069,
+        "b": 69.78687258687259
+      }
+    }
+  },
+  {
+    "id": "yamato",
+    "name": "Yamato",
+    "file": "yamato.jpeg",
+    "traits": {
+      "detected": true,
+      "faceRatio": 1.1499062914349696,
+      "eyeSpacingRatio": 0.2895118620351369,
+      "eyeSizeRatio": 0.11550322150013462,
+      "skin": {
+        "r": 113.92708333333333,
+        "g": 111.8125,
+        "b": 118.82291666666667
+      },
+      "hair": {
+        "r": 192.22852474323062,
+        "g": 185.43697478991598,
+        "b": 182.74929971988794
+      }
+    }
+  }
+]
