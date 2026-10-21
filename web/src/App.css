@@ -305,6 +305,25 @@ body {
   animation: jutsu-frame-in 0.4s ease-out;
 }
 
+.jutsu-fx-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vmin;
+  height: 70vmin;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  filter: saturate(1.5) brightness(1.15);
+  pointer-events: none;
+  animation: jutsu-fx-blaze 0.6s ease-out both;
+}
+
+@keyframes jutsu-fx-blaze {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.4) rotate(-20deg); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
 @keyframes jutsu-frame-in {
   from { opacity: 0; }
   to { opacity: 1; }
