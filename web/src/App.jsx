@@ -16,8 +16,28 @@ const STAGE = {
 const WS_URL = import.meta.env.VITE_MATCH_WS_URL || "ws://localhost:8000/ws/match";
 const JUTSU_WS_URL = import.meta.env.VITE_JUTSU_WS_URL || "ws://localhost:8000/ws/jutsu";
 const COUNTDOWN_SECONDS = 5;
-const JUTSU_FRAME_INTERVAL_MS = 130;
+const JUTSU_FRAME_INTERVAL_MS = 80;
 const INTRO_PLAYED_KEY = "shinobi-intro-played";
+
+const LIGHTNING_KEYWORDS = ["chidori", "lightning", "thunder", "lariat", "flicker"];
+const VOICE_BASE = `${import.meta.env.BASE_URL}voice/`;
+function jutsuVoiceCandidates(skillName) {
+  if (!skillName) return [];
+  const slug = skillName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return [VOICE_BASE + slug + ".mp3", VOICE_BASE + "default.mp3"];
+}
+
+function jutsuFxVideo(skillName) {
+  if (!skillName) return null;
+  const key = skillName.toLowerCase();
+  const name = LIGHTNING_KEYWORDS.some((k) => key.includes(k))
+    ? "tesla-coil"
+    : "plasma-orb";
+  return `${import.meta.env.BASE_URL}video/fx/${name}.webm`;
+}
 
 function introAlreadyPlayed() {
   try {
@@ -40,6 +60,8 @@ export default function App() {
   const [jutsuSkill, setJutsuSkill] = useState(null);
   const [jutsuFrame, setJutsuFrame] = useState(null);
   const [jutsuState, setJutsuState] = useState(null);
+  const [voiceSrc, setVoiceSrc] = useState(null);
+  const [castCount, setCastCount] = useState(0);
 
   const videoRef = useRef(null);
   const streamRef = useRef(null);
@@ -201,7 +223,7 @@ export default function App() {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-      ws.send(JSON.stringify({ type: "frame", image: canvas.toDataURL("image/jpeg", 0.75) }));
+      ws.send(JSON.stringify({ type: "frame", image: canvas.toDataURL("image/jpeg", 0.85) }));
     };
 
     ws.onopen = () => {
@@ -215,9 +237,6 @@ export default function App() {
       if (msg.status === "frame") {
         setJutsuFrame(msg.image);
         setJutsuState(msg.state);
-        if (msg.state?.stage === "done") {
-          clearInterval(jutsuIntervalRef.current);
-        }
       }
     };
     ws.onerror = () => {
@@ -230,6 +249,33 @@ export default function App() {
       ws.close();
     };
   }, [stage, jutsuSkill]);
+
+  // Voice shout: at cast time, probe recorded clips in /voice/ — the exact
+  // technique slug first ("rasengan.mp3"), then default.mp3. A missing file
+  // moves to the next candidate; no clip at all = no sound.
+  useEffect(() => {
+    if (jutsuState?.stage !== "cast" || !jutsuSkill) return;
+    const candidates = jutsuVoiceCandidates(jutsuSkill);
+    let idx = 0;
+    const probeOnNext = () => {
+      idx += 1;
+      if (idx < candidates.length) probe();
+      else setVoiceSrc(null);
+    };
+    const probe = () => {
+      const a = new Audio();
+      a.oncanplaythrough = () => {
+        a.oncanplaythrough = null;
+        a.onerror = null;
+        setVoiceSrc(candidates[idx]);
+        setCastCount((n) => n + 1);
+      };
+      a.onerror = probeOnNext;
+      a.preload = "auto";
+      a.src = candidates[idx];
+    };
+    probe();
+  }, [jutsuState?.stage === "cast", jutsuSkill]);
 
   const handleSelectJutsu = useCallback((skill) => {
     setJutsuSkill(skill);
@@ -308,6 +354,21 @@ export default function App() {
               <div className="countdown-ring small" />
               <p className="hud-hint">Summoning {jutsuSkill}…</p>
             </div>
+          )}
+
+          {jutsuState?.stage === "cast" && jutsuFxVideo(jutsuSkill) && (
+            <video
+              className="jutsu-fx-overlay"
+              src={jutsuFxVideo(jutsuSkill)}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          )}
+
+          {jutsuState?.stage === "cast" && voiceSrc && (
+            <audio key={castCount} src={voiceSrc} autoPlay />
           )}
 
           {jutsuState?.stage === "play" && (
