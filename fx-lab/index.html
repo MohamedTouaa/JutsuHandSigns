@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jutsu FX Lab</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #05070c;
+    color: #e8edf5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden;
+  }
+  #stage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  #cam, #fx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #cam {
+    /* The video is only a texture source now - the shader draws the
+       composited (mirrored, warped) frame onto #fx. */
+    opacity: 0;
+  }
+  #fx {
+    pointer-events: none;
+  }
+  #hud {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    background: rgba(8, 10, 16, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 260px;
+  }
+  #hud h1 {
+    font-size: 13px;
+    margin: 0 0 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-weight: 600;
+  }
+  select, button {
+    background: #141822;
+    color: #e8edf5;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:active { transform: translateY(1px); }
+  #status {
+    font-size: 11px;
+    opacity: 0.55;
+    line-height: 1.4;
+  }
+  #status.warn { color: #ffb020; opacity: 1; }
+  #status.err { color: #ff5a5a; opacity: 1; }
+  .row { display: flex; gap: 6px; align-items: center; }
+</style>
+</head>
+<body>
+  <div id="stage">
+    <video id="cam" autoplay muted playsinline></video>
+    <canvas id="fx"></canvas>
+    <div id="hud">
+      <h1>Jutsu FX Lab</h1>
+      <div class="row">
+        <label for="jutsu" style="font-size:12px;opacity:.8">Effect</label>
+        <select id="jutsu">
+          <option value="chidori">Chidori (procedural)</option>
+          <option value="rasengan">Rasengan (video asset)</option>
+          <option value="susanoo">Susanoo (procedural)</option>
+        </select>
+      </div>
+      <button id="start">Start camera</button>
+      <div id="status">Click start, allow the camera, then hold a hand up.</div>
+    </div>
+  </div>
+
+  <video id="fxAsset" src="./assets/rasengan-orb.mp4" loop muted playsinline style="display:none"></video>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
