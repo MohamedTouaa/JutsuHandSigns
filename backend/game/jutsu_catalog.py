@@ -12,7 +12,7 @@ import csv
 import hashlib
 import os
 
-from .effects import OrbEffect, LightningEffect, FlameEffect, EyeEffect
+from .effects import OrbEffect, LightningEffect, FlameEffect, EyeEffect, ExpansionEffect, BoulderEffect, WingEffect
 from .sign_detector import CANONICAL_SIGNS, LABELS
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
@@ -75,6 +75,9 @@ ARCHETYPES = {
     "flame_black": (FlameEffect, (20, 20, 20), {"tip_color": (80, 40, 200)}),
     "eye_red": (EyeEffect, (40, 30, 220), {"ring_color": (255, 255, 255)}),
     "eye_lavender": (EyeEffect, (210, 160, 200), {"ring_color": (255, 255, 255)}),
+    "expand_green": (ExpansionEffect, (90, 200, 90), {"ring_color": (255, 255, 255)}),
+    "boulder_green": (BoulderEffect, (80, 170, 80), {"streak_color": (230, 255, 230)}),
+    "wing_pink": (WingEffect, (220, 110, 230), {"tip_color": (255, 220, 255)}),
 }
 
 # Ordered keyword -> archetype rules. First match wins; falls back to a
@@ -125,9 +128,9 @@ _KEYWORD_RULES = [
     ("flying thunder god", "lightning_yellow"),
     ("flicker", "lightning_cyan"),
     ("scalpel", "orb_teal"),
-    ("expansion", "orb_green"),
-    ("boulder", "orb_green"),
-    ("butterfly", "orb_green"),
+    ("expansion", "expand_green"),
+    ("boulder", "boulder_green"),
+    ("butterfly", "wing_pink"),
     ("fang", "flame_orange"),
     ("beast human", "flame_orange"),
     ("hound", "orb_teal"),
