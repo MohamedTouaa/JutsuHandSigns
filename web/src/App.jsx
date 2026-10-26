@@ -6,6 +6,7 @@ import CharacterPicker from "./components/CharacterPicker";
 import { MuteToggle, Prompt, StormPanel, StormRow, StormSky, Strip } from "./components/Storm";
 import { sfx } from "./sfx";
 import { preloadVfx, vfxFor } from "./vfx/registry";
+import { openSocket } from "./standalone/socket";
 import "./App.css";
 
 const STAGE = {
@@ -18,8 +19,15 @@ const STAGE = {
   JUTSU: "jutsu",
 };
 
-const WS_URL = import.meta.env.VITE_MATCH_WS_URL || "ws://localhost:8000/ws/match";
-const JUTSU_WS_URL = import.meta.env.VITE_JUTSU_WS_URL || "ws://localhost:8000/ws/jutsu";
+// Backend WebSockets: the dev server talks to the backend on port 8000; a
+// hosted build is served by the backend itself, so it uses the same origin.
+// VITE_MATCH_WS_URL / VITE_JUTSU_WS_URL override either.
+function backendWs(path) {
+  if (import.meta.env.DEV) return `ws://${location.hostname}:8000${path}`;
+  return `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}${path}`;
+}
+const WS_URL = import.meta.env.VITE_MATCH_WS_URL || backendWs("/ws/match");
+const JUTSU_WS_URL = import.meta.env.VITE_JUTSU_WS_URL || backendWs("/ws/jutsu");
 const COUNTDOWN_SECONDS = 5;
 const JUTSU_FRAME_INTERVAL_MS = 80;
 const INTRO_PLAYED_KEY = "shinobi-intro-played";
@@ -83,7 +91,7 @@ export default function App() {
   stageRef.current = stage;
 
   const connectWs = useCallback(() => {
-    const ws = new WebSocket(WS_URL);
+    const ws = openSocket(WS_URL);
     wsRef.current = ws;
     let intentionalClose = false;
 
@@ -229,7 +237,7 @@ export default function App() {
     setClientCast(null);
     const hasClientVfx = Boolean(vfxFor(jutsuSkill));
 
-    const ws = new WebSocket(JUTSU_WS_URL);
+    const ws = openSocket(JUTSU_WS_URL);
     jutsuWsRef.current = ws;
 
     const sendFrame = () => {

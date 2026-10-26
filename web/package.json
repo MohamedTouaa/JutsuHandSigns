@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:pages": "vite build --mode pages --base=/JutsuHandSigns/"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^1.1.1",
+    "onnxruntime-web": "^1.30.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "three": "^0.186.1"

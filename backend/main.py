@@ -1,10 +1,12 @@
 import base64
 import binascii
+import os
 
 import cv2
 import numpy as np
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from captures import save_capture
 from game.session import JutsuSession
@@ -116,3 +118,10 @@ async def ws_jutsu(websocket: WebSocket):
     finally:
         if session is not None:
             session.close()
+
+
+# When hosted, serve the built frontend from this same server (mounted last so
+# /health and the WebSocket routes above take precedence), so one URL works.
+STATIC_DIR = os.environ.get("STATIC_DIR")
+if STATIC_DIR and os.path.isdir(STATIC_DIR):
+    app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="web")

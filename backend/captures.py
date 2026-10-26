@@ -9,10 +9,15 @@ from datetime import datetime, timezone
 import cv2
 
 CAPTURES_DIR = os.path.join(os.path.dirname(__file__), "captures")
-os.makedirs(CAPTURES_DIR, exist_ok=True)
+# Set SAVE_CAPTURES=0 when hosting publicly: captures are visitors' face photos.
+SAVE_CAPTURES = os.environ.get("SAVE_CAPTURES", "1") != "0"
+if SAVE_CAPTURES:
+    os.makedirs(CAPTURES_DIR, exist_ok=True)
 
 
 def save_capture(image, traits, match=None):
+    if not SAVE_CAPTURES:
+        return None
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     stem = f"{timestamp}-{uuid.uuid4().hex[:8]}"
 
